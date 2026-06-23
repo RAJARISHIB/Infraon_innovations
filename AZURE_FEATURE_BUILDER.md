@@ -72,6 +72,10 @@ AZDO_PROJECT=YOUR_AZURE_PROJECT_NAME
 AZDO_PAT=<YOUR_AZURE_PERSONAL_ACCESS_TOKEN>
 ```
 
+Update the environment path:
+In the skills/azure-feature-builder/extract_work_item.py
+Update the env variable name: `AGENTS_ENV_PATH`
+
 ### Notes
 
 - `AZDO_ORG` is the Azure DevOps organization name.
