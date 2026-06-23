@@ -7,7 +7,10 @@ from typing import Any
 
 import requests
 from dotenv import load_dotenv
-AGENTS_ENV_PATH = Path(r"D:\Infraon\Infraon-1\.agents\.env")
+
+
+AGENTS_ENV_PATH = Path(r"D:\Folder\Repository\.agents\.env")
+
 def load_environment() -> None:
     """Load Azure DevOps credentials from the fixed .agents/.env file."""
     if not AGENTS_ENV_PATH.is_file():

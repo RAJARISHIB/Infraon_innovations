@@ -23,7 +23,7 @@ This skill does **not** raise or create pull requests.
 The skill is located inside the repository-level `.agents` directory.
 
 ```text
-D:\Infraon\Infraon-1
+D:\Folder\Repository
 └── .agents
     ├── .env
     └── skills
