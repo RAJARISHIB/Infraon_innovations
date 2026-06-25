@@ -155,6 +155,27 @@ def normalize_work_item(raw: dict, comments: list[dict] | None = None) -> dict:
         ),
         "repro_steps": get_field(fields, "Microsoft.VSTS.TCM.ReproSteps"),
         "discussion": comments or [],
+        "rca": get_field(
+            fields,
+            "Custom.RCA",
+            "Custom.RootCauseAnalysis",
+            "Custom.RootCause",
+            "Microsoft.VSTS.CMMI.RootCause",
+        ),
+        "steps_to_reproduce": get_field(
+            fields,
+            "Microsoft.VSTS.TCM.ReproSteps",
+            "Custom.StepstoReproduce",
+            "Custom.StepsToReproduce",
+            "Custom.ReproSteps",
+        ),
+        "test_cases": get_field(
+            fields,
+            "Custom.TestCases",
+            "Custom.TestCase",
+            "Custom.TestCaseDetails",
+            "Microsoft.VSTS.TCM.TestCases",
+        ),
     }
 
 
