@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "azure-devops": 
+      {
+        "command": "C:\\nvm4w\\nodejs\\mcp-server-azuredevops.cmd",
+        "args": [
+          "YOUR_PROJECT_NAME",
+          "--authentication",
+          "pat",
+          "-d",
+          "work-items"
+        ],
+        "env": {
+          "PERSONAL_ACCESS_TOKEN": "YOUR_PERSONAL_ACCESS_TOKEN_BASE64_ENCODED="
+        }
+      }
+  }
+}
