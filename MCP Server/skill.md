@@ -366,6 +366,107 @@ Do not raise or create a pull request.
 
 ---
 
+
+## Coding Behavior Guidelines
+
+These guidelines reduce common LLM coding mistakes. Merge them with project-specific instructions during implementation.
+
+Tradeoff: these guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+### 1. Think Before Coding
+
+Do not assume. Do not hide confusion. Surface tradeoffs.
+
+Before implementing:
+
+```text
+- State assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them instead of choosing silently.
+- If a simpler approach exists, say so.
+- Push back when the requested approach is unnecessarily complex or risky.
+- If something is unclear, stop, name what is confusing, and ask.
+```
+
+### 2. Simplicity First
+
+Use the minimum code that solves the problem. Do not add speculative behavior.
+
+Rules:
+
+```text
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No flexibility or configurability that was not requested.
+- No error handling for impossible scenarios.
+- If the solution is much larger than necessary, simplify it before continuing.
+```
+
+Before finalizing code, ask:
+
+```text
+Would a senior engineer consider this overcomplicated?
+```
+
+If yes, simplify.
+
+### 3. Surgical Changes
+
+Touch only what is required. Clean up only changes introduced by the current implementation.
+
+When editing existing code:
+
+```text
+- Do not improve adjacent code, comments, or formatting.
+- Do not refactor unrelated code.
+- Match the existing style, even if a different style would be preferred.
+- If unrelated dead code is found, mention it instead of deleting it.
+```
+
+When changes create unused code:
+
+```text
+- Remove imports, variables, functions, or files made unused by the current changes.
+- Do not remove pre-existing dead code unless explicitly asked.
+```
+
+Test:
+
+```text
+Every changed line must trace directly to the Work Item or the user's approved plan.
+```
+
+### 4. Goal-Driven Execution
+
+Define success criteria and verify them.
+
+Transform tasks into verifiable goals:
+
+```text
+Add validation -> write or identify tests for invalid inputs, then make them pass.
+Fix the bug -> reproduce the issue, then make the verification pass.
+Refactor code -> ensure relevant tests pass before and after.
+```
+
+For multi-step tasks, use a brief plan:
+
+```text
+1. [Step] -> verify: [check]
+2. [Step] -> verify: [check]
+3. [Step] -> verify: [check]
+```
+
+Strong success criteria let the agent proceed independently. Weak criteria such as "make it work" require clarification before implementation.
+
+These guidelines are working when:
+
+```text
+- Diffs contain fewer unnecessary changes.
+- Rewrites due to overcomplication are reduced.
+- Clarifying questions happen before implementation mistakes.
+```
+
+---
+
 ## Requirement Priority
 
 If Work Item data conflicts, use this priority order:
